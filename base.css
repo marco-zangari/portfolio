@@ -1,12 +1,25 @@
-* {
+li, h2 {
  font-family: monospace, sans-serif;
  font-size: 14px;
+ align-content: center;
+ align-items: center;
+ justify-content: center;
 }
 
 .list {
   align-content: center;
+  align-items: center;
+  justify-content: center;
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: inline;
+}
+
+body {
+  text-align: center;
+  margin: auto;
+  vertical-align: middle;
+  position: relative;
+  top: 60vw;
 }
