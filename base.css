@@ -1,0 +1,12 @@
+* {
+ font-family: monospace, sans-serif;
+ font-size: 14px;
+}
+
+.list {
+  align-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
