@@ -1,3 +1,15 @@
 * {
  font-family: monospace, sans-serif;
 }
+
+.list {
+  align-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.navStyle {
+  display: inline-block;
+}

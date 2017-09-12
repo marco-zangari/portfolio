@@ -1,15 +1,15 @@
 'use strict';
 
-function Projects (title,date) {
+function Projects (title,date,url,contributor) {
   this.title = title;
+  this.date = date;
   this.url = url;
   this.contributor = contributor;
-  this.image = image;
-  this.date = date;
-
 }
 
-var = new Projects ();
+var cfstudy = ('CFStudy','August 2017','stariel nothingnessbird Playingtygre');
+
+var project = new Projects (title,date,url);
 
 function WorkHistory (title,workPlace) {
   this.title = title;
@@ -19,7 +19,7 @@ function WorkHistory (title,workPlace) {
   this.responsibility = responsibility;
 }
 
-var = new WorkHistory ();
+var work = new WorkHistory (title,workPlace);
 
 function Education (institution,place,degree) {
   this.institution = institution;
@@ -27,4 +27,4 @@ function Education (institution,place,degree) {
   this.degree = degree;
 }
 
-var = new Education ();
+var education = new Education (institution,place,degree);
