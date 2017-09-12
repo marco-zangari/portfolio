@@ -1,17 +1,14 @@
 'use strict';
 
-function Projects (title,date,url,contributor) {
+function Projects (title,date,contributor) {
   this.title = title;
   this.date = date;
-  this.url = url;
   this.contributor = contributor;
 }
 
-var cfstudy = ('CFStudy','August 2017','stariel nothingnessbird Playingtygre');
+var cfstudy = new Projects ('CFStudy','August 2017','stariel nothingnessbird Playingtygre');
 
-var project = new Projects (title,date,url);
-
-function WorkHistory (title,workPlace) {
+function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
   this.title = title;
   this.workPlace = workPlace;
   this.startDate = startDate;
@@ -19,7 +16,7 @@ function WorkHistory (title,workPlace) {
   this.responsibility = responsibility;
 }
 
-var work = new WorkHistory (title,workPlace);
+var seattleU = new WorkHistory ('adjunct professor','Seattle University','September 2010','June 2017','Curriculum Development, Research, Course Design, Teaching');
 
 function Education (institution,place,degree) {
   this.institution = institution;
@@ -27,4 +24,4 @@ function Education (institution,place,degree) {
   this.degree = degree;
 }
 
-var education = new Education (institution,place,degree);
+var uWash = new Education ('University of Washington','Seattle, WA','PhD');

@@ -1,5 +1,6 @@
 * {
  font-family: monospace, sans-serif;
+ font-size: 14px;
 }
 
 .list {
@@ -8,8 +9,4 @@
   margin: 0;
   padding: 0;
   display: inline;
-}
-
-.navStyle {
-  display: inline-block;
 }
