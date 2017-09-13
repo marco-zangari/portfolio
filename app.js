@@ -6,8 +6,6 @@ function Projects (title,date,contributor) {
   this.contributor = contributor;
 }
 
-var cfstudy = new Projects ('CFStudy','August 2017','stariel nothingnessbird Playingtygre');
-
 // on Click
 // make the cfstudy object
 // append it to the list
