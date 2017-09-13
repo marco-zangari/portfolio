@@ -8,6 +8,34 @@ function Projects (title,date,contributor) {
 
 var cfstudy = new Projects ('CFStudy','August 2017','stariel nothingnessbird Playingtygre');
 
+// on Click
+// make the cfstudy object
+// append it to the list
+
+var projectsRender = function(){
+  var $newLi = $('#projects').clone();
+  $newLi.attr('id','').addClass('Project Title: ' + cfstudy.title);
+  $newLi.attr('id','').addClass('Project Completed: ' + cfstudy.date);
+  $newLi.attr('id','').addClass('Project Collaborators: ' + cfstudy.contributor);
+};
+
+projectsRender();
+
+
+
+
+//   $newLi.find('h2')
+//         .text(this.title);
+//   $newLi.find('span')
+//         .eq(1).text(this.date);
+//   $newLi.find('.close')
+//         .attr('data', this.id)
+//         .on('click', deleteTask);
+//
+//   $('#task-list').append($newLi);
+//
+// $('projects').append
+
 function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
   this.title = title;
   this.workPlace = workPlace;
