@@ -11,14 +11,7 @@ function Projects (title,date,contributor,projectUrl) {
 // make the cfstudy object
 // append it to the list
 
-var projectsRender = function(){
-  var $newLi = $('#projects').clone();
-  $newLi.attr('id','').addClass('Project Title: ' + cfstudy.title);
-  $newLi.attr('id','').addClass('Project Completed: ' + cfstudy.date);
-  $newLi.attr('id','').addClass('Project Collaborators: ' + cfstudy.contributor);
-};
 
-projectsRender();
 
 
 
