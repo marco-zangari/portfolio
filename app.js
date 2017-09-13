@@ -23,6 +23,7 @@ projectsRender();
 
 
 
+
 //   $newLi.find('h2')
 //         .text(this.title);
 //   $newLi.find('span')
