@@ -1,9 +1,10 @@
 'use strict';
 
-function Projects (title,date,contributor) {
+function Projects (title,date,contributor,projectUrl) {
   this.title = title;
   this.date = date;
   this.contributor = contributor;
+  this.url = projectUrl;
 }
 
 // on Click
@@ -18,7 +19,6 @@ var projectsRender = function(){
 };
 
 projectsRender();
-
 
 
 
