@@ -14,12 +14,15 @@ var cfstudy = new Projects ('CFStudy','August 2017','stariel nothingnessbird Pla
 
 var projectsRender = function(){
   var $newLi = $('#projects').clone();
-  $newLi.attr('id', '').addClass('Project Title: ' + cfstudy.title);
+  $newLi.attr('id','').addClass('Project Title: ' + cfstudy.title);
   $newLi.attr('id','').addClass('Project Completed: ' + cfstudy.date);
   $newLi.attr('id','').addClass('Project Collaborators: ' + cfstudy.contributor);
 };
 
 projectsRender();
+
+
+
 //   $newLi.find('h2')
 //         .text(this.title);
 //   $newLi.find('span')
