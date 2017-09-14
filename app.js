@@ -2,7 +2,7 @@
 
 var projectsArray = [];
 
-function Projects (title,date,contributor,projectUrl) {
+function Project (title,date,contributor,projectUrl) {
   this.title = title;
   this.date = date;
   this.contributor = contributor;
@@ -10,15 +10,10 @@ function Projects (title,date,contributor,projectUrl) {
   projectsArray.push(this);
 }
 
-var projectsMaker = function () {
-  for (var i = 0; i < projectsData.length; i++)
-    var projectTitle = title[i][0];
-    var projectDate = date[i][1];
-    var projectContributor = contributor[i][2];
-    var projectUrl = projectUrl[i][3];
-}
+projectsData.forEach(function(projectObject) {
+  projectsArray.push(new Project(projectObject));
+});
 
-projectsMaker();
 
 var projectsRender = function(){
   var $newLi = $('.template-projects').clone();
@@ -26,7 +21,6 @@ var projectsRender = function(){
   $newLi.attr('id','').text(cfstudy.date);
   $newLi.attr('id','').text(cfstudy.contributor);
   $newLi.attr('id','').html(cfstudy.url);
-
 };
 
 projectsRender();
@@ -46,6 +40,7 @@ $('#projects').on('click', function(event){
     }, 5).text('On the left!');
   }
 })
+
 // on Click
 // make the cfstudy object
 // append it to the list
