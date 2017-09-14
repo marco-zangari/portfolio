@@ -2,9 +2,11 @@
 
 var projectsRender = function(){
   var $newLi = $('#projects').clone();
-  $newLi.attr('id','').addClass('Project Title: ' + cfstudy.title);
-  $newLi.attr('id','').addClass('Project Completed: ' + cfstudy.date);
-  $newLi.attr('id','').addClass('Project Collaborators: ' + cfstudy.contributor);
+  $newLi.attr('id','').text('Project Title: ' + cfstudy.title);
+  $newLi.attr('id','').text('Project Completed: ' + cfstudy.date);
+  $newLi.attr('id','').text('Project Collaborators: ' + cfstudy.contributor);
+  $newLi.attr('id','').html('Project Link: ' + cfstudy.url);
+  
 };
 
 projectsRender();
