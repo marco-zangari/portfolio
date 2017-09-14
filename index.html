@@ -15,10 +15,17 @@
 <div class="navBar">
   <nav class ="navStyle">
     <ul class="list">
-      <li id="projects">projects</li>
-      <li id="workHistory">work history</li>
-      <li id="education">education</li>
-      <a href="https://github.com/marco-zangari"><li id="aboutMe">about me</li></a>
+      <li id="projects" class="clickable">projects
+        <ul class="template-projects">
+          <li id="title">Project Title: </li>
+          <li id="project">Project Completed: </li>
+          <li id="collaborator">Project Collaborators: </li>
+          <li id="project-url">'Project Link: </li>
+        </ul>
+      </li>
+      <li id="workHistory" class="clickable">work history</li>
+      <li id="education" class="clickable">education</li>
+      <a href="https://github.com/marco-zangari"><li id="aboutMe" class="clickable">about me</li></a>
     </ul>
   </nav>
 </div>
@@ -26,5 +33,6 @@
   <h2>developer | researcher</h2>
 </div>
   </body>
+  <script type="text/javascript" src="source-data.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </html>

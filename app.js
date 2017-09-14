@@ -1,25 +1,50 @@
 'use strict';
 
-function Projects (title,date,contributor) {
+var projectsArray = [];
+
+function Project (title,date,contributor,projectUrl) {
   this.title = title;
   this.date = date;
   this.contributor = contributor;
+  this.url = projectUrl;
+  projectsArray.push(this);
 }
 
-var cfstudy = new Projects ('CFStudy','August 2017','stariel nothingnessbird Playingtygre');
+projectsData.forEach(function(projectObject) {
+  projectsArray.push(new Project(projectObject));
+});
+
+
+var projectsRender = function(){
+  var $newLi = $('.template-projects').clone();
+  $newLi.attr('id','').text(cfstudy.title);
+  $newLi.attr('id','').text(cfstudy.date);
+  $newLi.attr('id','').text(cfstudy.contributor);
+  $newLi.attr('id','').html(cfstudy.url);
+};
+
+projectsRender();
+
+
+$('#projects').on('click', function(event){
+  event.stopPropagation();
+  $(this)
+    .css({position: 'absolute'});
+  if ($(this).position().left < 10) {
+    $(this).animate({
+      left: ($(window).width() - $(this).width()) + 'px'
+    }, 5000).text('On the right!');
+  } else {
+    $(this).animate({
+      left: '8px'
+    }, 5).text('On the left!');
+  }
+})
 
 // on Click
 // make the cfstudy object
 // append it to the list
 
-var projectsRender = function(){
-  var $newLi = $('#projects').clone();
-  $newLi.attr('id','').addClass('Project Title: ' + cfstudy.title);
-  $newLi.attr('id','').addClass('Project Completed: ' + cfstudy.date);
-  $newLi.attr('id','').addClass('Project Collaborators: ' + cfstudy.contributor);
-};
-
-projectsRender();
 
 
 
