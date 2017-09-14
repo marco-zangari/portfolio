@@ -10,7 +10,7 @@ var projectsRender = function(){
 projectsRender();
 
 
-$('#button').on('click', function(event){
+$('#projects').on('click', function(event){
   event.stopPropagation();
   $(this)
     .css({position: 'absolute'});
@@ -24,8 +24,3 @@ $('#button').on('click', function(event){
     }, 5).text('On the left!');
   }
 })
-
-
-
-var cfstudy = new Projects ('CFStudy','August 2017','stariel nothingnessbird Playingtygre','https://github.com/marco-zangari/cfstudybuddies');
-var busmall = new Projects ('Bus-Mall', 'August 2017','','https://github.com/marco-zangari/bus-mall')

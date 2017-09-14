@@ -1,11 +1,17 @@
 'use strict';
 
+var projectsArray = [];
+
 function Projects (title,date,contributor,projectUrl) {
   this.title = title;
   this.date = date;
   this.contributor = contributor;
   this.url = projectUrl;
+  projectsArray.push(this);
 }
+
+var cfstudy = new Projects ('CFStudy','August 2017','stariel nothingnessbird Playingtygre','https://github.com/marco-zangari/cfstudybuddies');
+var busmall = new Projects ('Bus-Mall', 'August 2017','','https://github.com/marco-zangari/bus-mall');
 
 // on Click
 // make the cfstudy object
