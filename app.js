@@ -10,6 +10,16 @@ function Projects (title,date,contributor,projectUrl) {
   projectsArray.push(this);
 }
 
+var projectsMaker = function () {
+  for (var i = 0; i < projectsData.length; i++)
+    var projectTitle = title[i][0];
+    var projectDate = date[i][1];
+    var projectContributor = contributor[i][2];
+    var projectUrl = projectUrl[i][3];
+}
+
+projectsMaker();
+
 var projectsRender = function(){
   var $newLi = $('.template-projects').clone();
   $newLi.attr('id','').text(cfstudy.title);
