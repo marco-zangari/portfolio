@@ -10,9 +10,32 @@ function Projects (title,date,contributor,projectUrl) {
   projectsArray.push(this);
 }
 
-var cfstudy = new Projects ('CFStudy','August 2017','stariel nothingnessbird Playingtygre','https://github.com/marco-zangari/cfstudybuddies');
-var busmall = new Projects ('Bus-Mall', 'August 2017','','https://github.com/marco-zangari/bus-mall');
+var projectsRender = function(){
+  var $newLi = $('.template-projects').clone();
+  $newLi.attr('id','').text(cfstudy.title);
+  $newLi.attr('id','').text(cfstudy.date);
+  $newLi.attr('id','').text(cfstudy.contributor);
+  $newLi.attr('id','').html(cfstudy.url);
 
+};
+
+projectsRender();
+
+
+$('#projects').on('click', function(event){
+  event.stopPropagation();
+  $(this)
+    .css({position: 'absolute'});
+  if ($(this).position().left < 10) {
+    $(this).animate({
+      left: ($(window).width() - $(this).width()) + 'px'
+    }, 5000).text('On the right!');
+  } else {
+    $(this).animate({
+      left: '8px'
+    }, 5).text('On the left!');
+  }
+})
 // on Click
 // make the cfstudy object
 // append it to the list
