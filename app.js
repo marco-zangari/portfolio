@@ -9,26 +9,29 @@ function Project (rawData) {
   this.url = rawData.projectUrl;
 }
 
+Project.prototype.toHTML = function(){
+  var $newLi = $('.template-projects').clone();
+  $newLi.attr('class', 'rendered-projects');
+  $newLi.find('#title').text(this.title);
+  $newLi.find('#project').text(this.date);
+  $newLi.find('#collaborator').text(this.contributor);
+  $newLi.find('#project-url').html(`<a href="this.url">PROJECT</a>`);
+  return $newLi;
+};
+
+projectsArray.forEach(function(tugboat){
+  // tugboat.toHTML();
+  $('#projects').append(tugboat.toHTML());
+});
+
 projectsData.forEach(function(projectObject) {
   projectsArray.push(new Project(projectObject));
 });
 
-var projectsRender = function(){
-  var $newLi = $('.template-projects').clone();
-  $newLi.find('#title').html(projectsArray[0].title);
-  $newLi.find('#project').text(projectsArray[0].date);
-  $newLi.find('#collaborator').text(projectsArray[0].contributor);
-  $newLi.find('#project-url').html(projectsArray[0].url);
-  $('#projects').append($newLi);
-};
-
-projectsRender();
-
 function submitProjects(event) {
   event.preventDefault();
   $('#projects').on('click', event);
-  return projectsRender();
-  $('.template-projects').show();
+  $('.rendered-projects').show();
 };
 
 function removeProjects(event) {
