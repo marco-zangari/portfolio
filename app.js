@@ -7,7 +7,6 @@ function Project (title,date,contributor,projectUrl) {
   this.date = date;
   this.contributor = contributor;
   this.url = projectUrl;
-  projectsArray.push(this);
 }
 
 projectsData.forEach(function(projectObject) {
