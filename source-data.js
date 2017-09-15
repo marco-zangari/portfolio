@@ -11,7 +11,6 @@ var projectsData = [
     contributor: 'stariel nothingnessbird Playingtygre',
     url: 'https://github.com/marco-zangari/cfstudybuddies'
   },
-
   {
     title: 'Bus-Mall',
     date: 'August 2017',

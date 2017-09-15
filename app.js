@@ -2,24 +2,24 @@
 
 var projectsArray = [];
 
-function Project (title,date,contributor,projectUrl) {
-  this.title = title;
-  this.date = date;
-  this.contributor = contributor;
-  this.url = projectUrl;
+function Project (rawData) {
+  this.title = rawData.title;
+  this.date = rawData.date;
+  this.contributor = rawData.contributor;
+  this.url = rawData.projectUrl;
 }
 
 projectsData.forEach(function(projectObject) {
   projectsArray.push(new Project(projectObject));
 });
 
-
 var projectsRender = function(){
   var $newLi = $('.template-projects').clone();
-  $newLi.attr('id','').text(cfstudy.title);
-  $newLi.attr('id','').text(cfstudy.date);
-  $newLi.attr('id','').text(cfstudy.contributor);
-  $newLi.attr('id','').html(cfstudy.url);
+  $newLi.attr('id','title').html(projectsArray[0].title);
+  $newLi.attr('id','project').text(projectsArray[0].date);
+  $newLi.attr('id','collaborator').text(projectsArray[0].contributor);
+  $newLi.attr('id','project-url').html(projectsArray[0].url);
+  $('#projects').append($newLi);
 };
 
 projectsRender();
