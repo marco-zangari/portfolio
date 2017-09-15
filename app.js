@@ -29,7 +29,7 @@ projectsArray.forEach(function(tugboat){
 
 function projectsHandler(event) {
   $('#projects').click(function(event) {
-    $('#').toggle(600, function(event) {
+    $('#rendered-projects').toggle(600, function(event) {
   });
   });
 }
