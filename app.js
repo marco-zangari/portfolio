@@ -19,14 +19,15 @@ Project.prototype.toHTML = function(){
   return $newLi;
 };
 
+projectsData.forEach(function(projectObject) {
+  projectsArray.push(new Project(projectObject));
+});
+
 projectsArray.forEach(function(tugboat){
   // tugboat.toHTML();
   $('#projects').append(tugboat.toHTML());
 });
 
-projectsData.forEach(function(projectObject) {
-  projectsArray.push(new Project(projectObject));
-});
 
 function submitProjects(event) {
   event.preventDefault();
