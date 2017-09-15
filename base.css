@@ -24,3 +24,6 @@ body {
   top: 60vw;
   background-color: white;
 }
+.template-projects{
+  display: none;
+}

@@ -15,30 +15,62 @@ projectsData.forEach(function(projectObject) {
 
 var projectsRender = function(){
   var $newLi = $('.template-projects').clone();
-  $newLi.attr('id','title').html(projectsArray[0].title);
-  $newLi.attr('id','project').text(projectsArray[0].date);
-  $newLi.attr('id','collaborator').text(projectsArray[0].contributor);
-  $newLi.attr('id','project-url').html(projectsArray[0].url);
+  $newLi.find('#title').html(projectsArray[0].title);
+  $newLi.find('#project').text(projectsArray[0].date);
+  $newLi.find('#collaborator').text(projectsArray[0].contributor);
+  $newLi.find('#project-url').html(projectsArray[0].url);
   $('#projects').append($newLi);
 };
 
 projectsRender();
 
+function submitProjects(event) {
+  event.preventDefault();
+  $('#projects').on('click', event);
+  return projectsRender();
+  $('.template-projects').show();
+};
 
-$('#projects').on('click', function(event){
-  event.stopPropagation();
-  $(this)
-    .css({position: 'absolute'});
-  if ($(this).position().left < 10) {
-    $(this).animate({
-      left: ($(window).width() - $(this).width()) + 'px'
-    }, 5000).text('On the right!');
-  } else {
-    $(this).animate({
-      left: '8px'
-    }, 5).text('On the left!');
-  }
-})
+function removeProjects(event) {
+  event.preventDefault();
+  $('#projects').off('click', event);
+  $('.template-projects').hide();
+};
+
+//     {
+//   if another click event happens, turn off projects
+//   if (another click happens,
+//     };
+// };
+
+
+
+  // function submitProjects (event){
+  //   event.preventDefault();
+  //   var taskProjects = $('#template-projects')
+  //                    .find('[name="task"]')
+  //                    .val();
+  //   var taskDate = $('#task-form')
+  //                    .find('[name="date"]')
+  //                    .val();
+  //   theForm.reset();
+  //   $('.task-item').remove();
+  //   new Task(taskText, taskDate);
+  //   listTasks();
+  // }
+
+  // event.stopPropagation();
+  // $(this)
+  //   .css({position: 'absolute'});
+  // if ($(this).position().left < 10) {
+  //   $(this).animate({
+  //     left: ($(window).width() - $(this).width()) + 'px'
+  //   }, 5000).text('On the right!');
+  // } else {
+  //   $(this).animate({
+  //     left: '8px'
+  //   }, 5).text('On the left!');
+  // }
 
 // on Click
 // make the cfstudy object
