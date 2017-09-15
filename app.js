@@ -24,12 +24,17 @@ projectsData.forEach(function(projectObject) {
 });
 
 projectsArray.forEach(function(tugboat){
-  // tugboat.toHTML();
   $('#projects').append(tugboat.toHTML());
 });
 
+function projectsHandler(event) {
+  $('#projects').click(function(event) {
+    $('#').toggle(600, function(event) {
+  });
+  });
+}
 
-function submitProjects(event) {
+function projectsHandler(event) {
   event.preventDefault();
   $('#projects').on('click', event);
   $('.rendered-projects').show();
