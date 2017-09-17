@@ -117,4 +117,4 @@ function Education (institution,place,degree) {
   this.degree = degree;
 }
 
-var uWash = new Education ('University of Washington','Seattle, WA','PhD');
+var uWash = new Education ('University of Washington','Seattle, WA','PhD')
