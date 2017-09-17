@@ -7,31 +7,43 @@
     <link rel="stylesheet" href="styles/reset.css"/>
     <link rel="stylesheet" href="styles/base.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style media="screen">
+     section {
+       height: 25vh;
+       background-color: white;
+       color: black;
+     }
+     .scroll-right-name {
+       background-color: rgb(108,123,139);
+       position: relative;
+       cursor: pointer;
+     }
+   </style>
   </head>
   <body>
-<div id="authorName" class="bigTitle">
-  <h2>marco zangari</h2>
-</div>
-<div class="navBar">
-  <nav class ="navStyle">
-    <ul class="list">
-      <li id="projects" class="clickable">projects
-        <ul class="template-projects">
-          <li id="title">Project Title: </li>
-          <li id="project">Project Completed: </li>
-          <li id="collaborator">Project Collaborators: </li>
-          <li id="project-url">'Project Link: </li>
-        </ul>
-      </li>
-      <li id="workHistory" class="clickable">work history</li>
-      <li id="education" class="clickable">education</li>
-      <a href="https://github.com/marco-zangari"><li id="aboutMe" class="clickable">about me</li></a>
-    </ul>
-  </nav>
-</div>
-<div id="authorProfession" class="bigTitle">
-  <h2>developer | researcher</h2>
-</div>
+    <div id="authorName" class="bigTitle">
+      <a href="#" class="scroll-right-name" id="move-right">marco zangari</a>
+    </div>
+      <section>
+        <div>
+          <ul id="list">
+            <li id="projects" class="clickable">projects
+              <ul class="template-projects">
+                <li id="title">project title: </li>
+                <li id="project">project completed: </li>
+                <li id="collaborator">project collaborators: </li>
+                <li id="project-url">project link: </li>
+              </ul>
+            </li>
+            <li id="work-history" class="clickable">work history</li>
+            <li id="education" class="clickable">education</li>
+            <a href="https://github.com/marco-zangari"><li id="aboutMe" class="clickable">about me</li></a>
+          </ul>
+        </div>
+      </section>
+      <div id="authorProfession" class="bigTitle">
+        <a href="#" class="scroll-right-name" id="move-right-2">developer | researcher</a>
+      </div>
   </body>
   <script type="text/javascript" src="data/source-data.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
