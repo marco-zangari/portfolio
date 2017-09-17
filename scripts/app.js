@@ -19,22 +19,7 @@ Project.prototype.toHTML = function(){
   return $newLi;
 };
 
-$('#move-right').on('click', function(event){
-  event.stopPropagation();
-  $(this)
-    .css({position: 'center'});
-  if ($(this).position().center) {
-    $(this).animate({
-      left: ($(window).width() - $(this).width()) + 'px'
-    }, 3000);
-  } else {
-    $(this).animate({
-      left: '50px'
-    }, 3000);
-  }
-})
-
-$('#move-right-2').on('click', function(event){
+$('.scroll-right-name').on('click', function(event){
   event.stopPropagation();
   $(this)
     .css({position: 'center'});
