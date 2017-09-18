@@ -19,6 +19,16 @@
        cursor: pointer;
      }
    </style>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js" charset="utf-8"></script>
+   <script id="projects-template" type="text/x-handlebars-template">
+     <article class="post">
+       <h2 class="title">{{ title }}</h2>
+       <span class="byline">{{ author }}</span>
+       <section class="post-body">
+         {{{ body }}}
+       </section>
+     </article>
+   </script>
   </head>
   <body>
     <div id="authorName" class="bigTitle">

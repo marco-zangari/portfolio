@@ -42,40 +42,6 @@ projectsArray.forEach(function(tugboat){
   $('#projects').append(tugboat.toHTML());
 });
 
-$('.move-right').on('click', function(event){
-  event.stopPropagation();
-  $(this)
-    .css({position: 'center'});
-  if ($(this).position().center) {
-    $(this).animate({
-      left: ($(window).width() - $(this).width()) + 'px'
-    }, 5000);
-  } else {
-    $(this).animate({
-      left: '75px'
-    }, 5000);
-  }
-})
-// function projectsHandler(event) {
-//   $('#projects').click(function(event) {
-//     $('#rendered-projects').toggle(600, function(event) {
-//   });
-//   });
-// }
-//
-// function projectsHandler(event) {
-//   event.preventDefault();
-//   $('#projects').on('click', event);
-//   $('.rendered-projects').show();
-// };
-//
-// function removeProjects(event) {
-//   event.preventDefault();
-//   $('#projects').off('click', event);
-//   $('.template-projects').hide();
-// };
-
-
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;
 //   this.workPlace = workPlace;
