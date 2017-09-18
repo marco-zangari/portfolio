@@ -12,14 +12,15 @@ function Project(projectsData){
   this.url = projectsData.projectUrl;
 }
 
+projectsData.forEach(function(projectObject) {
+  projectsArray.push(new Project(projectObject));
+});
+
 projectsArray.forEach(function(someProject) {
   var newRawHTML = projectsTemplate(someProject);
   $('#projects-area').append(newRawHTML);}
 );
 
-projectsArray.forEach(function(projectObject) {
-  projectsArray.push(new Project(projectObject));
-});
 // Project.prototype.toHTML = function(){
 //   var $newLi = $('.template-projects').clone();
 //   $newLi.attr('class', 'rendered-projects');
