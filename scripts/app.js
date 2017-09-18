@@ -5,27 +5,31 @@ var projectsArray = [];
 var sourceHTML = $('#projects-template').html();
 var projectsTemplate = Handlebars.compile(sourceHTML);
 
-function Project(rawData){
-  this.title = rawData.title;
-  this.date = rawData.date;
-  this.contributor = rawData.contributor;
-  this.url = rawData.projectUrl;
+function Project(projectsData){
+  this.title = projectsData.title;
+  this.date = projectsData.date;
+  this.contributor = projectsData.contributor;
+  this.url = projectsData.projectUrl;
 }
 
-Project.prototype.toHTML = function(){
-  var $newLi = $('.template-projects').clone();
-  $newLi.attr('class', 'rendered-projects');
-  $newLi.find('#title').text(this.title);
-  $newLi.find('#project').text(this.date);
-  $newLi.find('#collaborator').text(this.contributor);
-  $newLi.find('#project-url').html(`<a href="this.url">project link</a>`);
-  return $newLi;
-};
+projectsArray.forEach(function(someProject) {
+  var newRawHTML = projectsTemplate(someProject);
+  $('#projects-area').append(newRawHTML);}
+);
 
+projectsArray.forEach(function(projectObject) {
+  projectsArray.push(new Project(projectObject));
+});
+// Project.prototype.toHTML = function(){
+//   var $newLi = $('.template-projects').clone();
+//   $newLi.attr('class', 'rendered-projects');
+//   $newLi.find('#title').text(this.title);
+//   $newLi.find('#project').text(this.date);
+//   $newLi.find('#collaborator').text(this.contributor);
+//   $newLi.find('#project-url').html(`<a href="this.url">project link</a>`);
+//   return $newLi;
+// };
 
-var someArticle = new Article();
-var newRawHTML = actualTemplate(someArticle);
-$('body').append(newRawHTML);
 
 $('.scroll-right-name').on('click', function(event){
   event.stopPropagation();
