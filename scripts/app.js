@@ -2,22 +2,35 @@
 
 var projectsArray = [];
 
-function Project (rawData) {
-  this.title = rawData.title;
-  this.date = rawData.date;
-  this.contributor = rawData.contributor;
-  this.url = rawData.projectUrl;
+var sourceHTML = $('#projects-template').html();
+var projectsTemplate = Handlebars.compile(sourceHTML);
+
+function Project(projectsData){
+  this.title = projectsData.title;
+  this.date = projectsData.date;
+  this.contributor = projectsData.contributor;
+  this.url = projectsData.projectUrl;
 }
 
-Project.prototype.toHTML = function(){
-  var $newLi = $('.template-projects').clone();
-  $newLi.attr('class', 'rendered-projects');
-  $newLi.find('#title').text(this.title);
-  $newLi.find('#project').text(this.date);
-  $newLi.find('#collaborator').text(this.contributor);
-  $newLi.find('#project-url').html(`<a href="this.url">project link</a>`);
-  return $newLi;
-};
+projectsData.forEach(function(projectObject) {
+  projectsArray.push(new Project(projectObject));
+});
+
+projectsArray.forEach(function(someProject) {
+  var newRawHTML = projectsTemplate(someProject);
+  $('#projects-area').append(newRawHTML);}
+);
+
+// Project.prototype.toHTML = function(){
+//   var $newLi = $('.template-projects').clone();
+//   $newLi.attr('class', 'rendered-projects');
+//   $newLi.find('#title').text(this.title);
+//   $newLi.find('#project').text(this.date);
+//   $newLi.find('#collaborator').text(this.contributor);
+//   $newLi.find('#project-url').html(`<a href="this.url">project link</a>`);
+//   return $newLi;
+// };
+
 
 $('.scroll-right-name').on('click', function(event){
   event.stopPropagation();
@@ -41,40 +54,6 @@ projectsData.forEach(function(projectObject) {
 projectsArray.forEach(function(tugboat){
   $('#projects').append(tugboat.toHTML());
 });
-
-$('.move-right').on('click', function(event){
-  event.stopPropagation();
-  $(this)
-    .css({position: 'center'});
-  if ($(this).position().center) {
-    $(this).animate({
-      left: ($(window).width() - $(this).width()) + 'px'
-    }, 5000);
-  } else {
-    $(this).animate({
-      left: '75px'
-    }, 5000);
-  }
-})
-// function projectsHandler(event) {
-//   $('#projects').click(function(event) {
-//     $('#rendered-projects').toggle(600, function(event) {
-//   });
-//   });
-// }
-//
-// function projectsHandler(event) {
-//   event.preventDefault();
-//   $('#projects').on('click', event);
-//   $('.rendered-projects').show();
-// };
-//
-// function removeProjects(event) {
-//   event.preventDefault();
-//   $('#projects').off('click', event);
-//   $('.template-projects').hide();
-// };
-
 
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;
