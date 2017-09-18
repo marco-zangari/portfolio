@@ -2,7 +2,10 @@
 
 var projectsArray = [];
 
-function Project (rawData) {
+var sourceHTML = $('#projects-template').html();
+var projectsTemplate = Handlebars.compile(sourceHTML);
+
+function Project(rawData){
   this.title = rawData.title;
   this.date = rawData.date;
   this.contributor = rawData.contributor;
@@ -18,6 +21,11 @@ Project.prototype.toHTML = function(){
   $newLi.find('#project-url').html(`<a href="this.url">project link</a>`);
   return $newLi;
 };
+
+
+var someArticle = new Article();
+var newRawHTML = actualTemplate(someArticle);
+$('body').append(newRawHTML);
 
 $('.scroll-right-name').on('click', function(event){
   event.stopPropagation();
