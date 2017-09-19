@@ -1,6 +1,6 @@
 ul, li, section, div {
  font-family: monospace, sans-serif;
- font-size: 14px;
+ font-size: 3vh;
  align-content: center;
  align-items: center;
  justify-content: center;
@@ -26,6 +26,10 @@ body {
 }
 
 .template-projects{
+  display: none;
+}
+
+ul {
   display: none;
 }
 
