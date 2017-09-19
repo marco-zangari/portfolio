@@ -21,17 +21,6 @@ projectsArray.forEach(function(someProject) {
   $('#projects-area').append(newRawHTML);}
 );
 
-// Project.prototype.toHTML = function(){
-//   var $newLi = $('.template-projects').clone();
-//   $newLi.attr('class', 'rendered-projects');
-//   $newLi.find('#title').text(this.title);
-//   $newLi.find('#project').text(this.date);
-//   $newLi.find('#collaborator').text(this.contributor);
-//   $newLi.find('#project-url').html(`<a href="this.url">project link</a>`);
-//   return $newLi;
-// };
-
-
 $('.scroll-right-name').on('click', function(event){
   event.stopPropagation();
   $(this)
@@ -47,13 +36,14 @@ $('.scroll-right-name').on('click', function(event){
   }
 })
 
-projectsData.forEach(function(projectObject) {
-  projectsArray.push(new Project(projectObject));
+
+$('.fa').on('click', function(){
+  $('.burger').toggle();
 });
 
-projectsArray.forEach(function(tugboat){
-  $('#projects').append(tugboat.toHTML());
-});
+// $(.'fa').on('click', function (){
+//   $.'.burger').hide();
+// });
 
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;
