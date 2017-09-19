@@ -1,3 +1,5 @@
-#scroll-up-name{
-  
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
