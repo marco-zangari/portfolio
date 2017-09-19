@@ -36,9 +36,14 @@ $('.scroll-right-name').on('click', function(event){
   }
 })
 
+
 $('.fa').on('click', function(){
-  $('.burger').show();
+  $('.burger').toggle();
 });
+
+// $(.'fa').on('click', function (){
+//   $.'.burger').hide();
+// });
 
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;
