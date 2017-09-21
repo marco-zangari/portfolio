@@ -29,10 +29,7 @@ Article.fetchAll = function() {
     });}
 }
 
-$.get('data/hackerIpsum.json', function(response) {
-      localStorage.setItem('rawData', JSON.stringify(response));
-      Article.loadAll(JSON.parse(localStorage.rawData)); //DONE: What do we pass in to loadAll()?
-      articleView.initIndexPage();
+articleView.initIndexPage();
 
 projectsArray.forEach(function(someProject) {
   let newRawHTML = projectsTemplate(someProject);
