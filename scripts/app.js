@@ -1,9 +1,9 @@
 'use strict';
 
-var projectsArray = [];
+let projectsArray = [];
 
-var sourceHTML = $('#projects-template').html();
-var projectsTemplate = Handlebars.compile(sourceHTML);
+let sourceHTML = $('#projects-template').html();
+let projectsTemplate = Handlebars.compile(sourceHTML);
 
 function Project(projectsData){
   this.title = projectsData.title;
@@ -12,12 +12,30 @@ function Project(projectsData){
   this.url = projectsData.projectUrl;
 }
 
-projectsData.forEach(function(projectObject) {
-  projectsArray.push(new Project(projectObject));
-});
+Project.loadAll = function(ele) {
+  projectsData.forEach(function(ele) {
+    projectsArray.all.push(new Project(ele));
+  })
+}
+
+Article.fetchAll = function() {
+  if (localStorage.projectsData) {
+    Article.loadAll();
+  } else {
+    $.get('data/data.json', function (response) {
+      localStorage.setItem('projectsData', JSON.stringify(resonse));
+      Project.loadAll(JSON.parse(localStorage.projectsData));
+      Project
+    });}
+}
+
+$.get('data/hackerIpsum.json', function(response) {
+      localStorage.setItem('rawData', JSON.stringify(response));
+      Article.loadAll(JSON.parse(localStorage.rawData)); //DONE: What do we pass in to loadAll()?
+      articleView.initIndexPage();
 
 projectsArray.forEach(function(someProject) {
-  var newRawHTML = projectsTemplate(someProject);
+  let newRawHTML = projectsTemplate(someProject);
   $('#projects-area').append(newRawHTML);}
 );
 
@@ -36,14 +54,9 @@ $('.scroll-right-name').on('click', function(event){
   }
 })
 
-
 $('.fa').on('click', function(){
   $('.burger').toggle();
 });
-
-// $(.'fa').on('click', function (){
-//   $.'.burger').hide();
-// });
 
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;
