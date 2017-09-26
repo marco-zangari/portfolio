@@ -12,6 +12,11 @@ function Project(rawData){
   this.url = rawData.projectUrl;
 }
 
+Project.prototype.toHtml = function () {
+  projectsTemplate(this)
+  console.log(this);
+};
+
 Project.loadAll = function(ele) {
   console.log(ele);
   projectsArray.push(new Project(ele));
@@ -23,10 +28,11 @@ Project.fetchAll = function() {
   } else {
     $.get('../data/data.json', function (response) {
       localStorage.setItem('projectsData', JSON.stringify(response));
-
       Project.loadAll();
     });}
 }
+
+Project.fetchAll();
 
 projectsArray.forEach(function(someProject) {
   let newRawHTML = projectsTemplate(someProject);

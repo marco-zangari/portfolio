@@ -3,8 +3,10 @@
 const projectView = {};
 
 projectView.initIndexPage = function() {
-  Project.all.forEach(function(project) {
-    $('#projects-area').append(project.toHtml())
+  projectsArray.forEach(function(project) {
+    $('#projects-area').append(project.toHtml(
+      {}
+    ))
   })
 }
 
