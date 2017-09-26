@@ -5,55 +5,33 @@ let projectsArray = [];
 let sourceHTML = $('#projects-template').html();
 let projectsTemplate = Handlebars.compile(sourceHTML);
 
-function Project(projectsData){
-  this.title = projectsData.title;
-  this.date = projectsData.date;
-  this.contributor = projectsData.contributor;
-  this.url = projectsData.projectUrl;
+function Project(rawData){
+  this.title = rawData.title;
+  this.date = rawData.date;
+  this.contributor = rawData.contributor;
+  this.url = rawData.projectUrl;
 }
 
 Project.loadAll = function(ele) {
-  projectsData.forEach(function(ele) {
-    projectsArray.all.push(new Project(ele));
-  })
+  console.log(ele);
+  projectsArray.push(new Project(ele));
 }
 
-Article.fetchAll = function() {
+Project.fetchAll = function() {
   if (localStorage.projectsData) {
-    Article.loadAll();
+    Project.loadAll(JSON.parse(localStorage.projectsData));
   } else {
-    $.get('data/data.json', function (response) {
-      localStorage.setItem('projectsData', JSON.stringify(resonse));
-      Project.loadAll(JSON.parse(localStorage.projectsData));
-      Project
+    $.get('../data/data.json', function (response) {
+      localStorage.setItem('projectsData', JSON.stringify(response));
+
+      Project.loadAll();
     });}
 }
-
-articleView.initIndexPage();
 
 projectsArray.forEach(function(someProject) {
   let newRawHTML = projectsTemplate(someProject);
   $('#projects-area').append(newRawHTML);}
 );
-
-$('.scroll-right-name').on('click', function(event){
-  event.stopPropagation();
-  $(this)
-    .css({position: 'center'});
-  if ($(this).position().center) {
-    $(this).animate({
-      left: ($(window).width() - $(this).width()) + 'px'
-    }, 3000);
-  } else {
-    $(this).animate({
-      left: '50px'
-    }, 3000);
-  }
-})
-
-$('.fa').on('click', function(){
-  $('.burger').toggle();
-});
 
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;
