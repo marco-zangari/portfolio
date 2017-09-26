@@ -1,9 +1,6 @@
 'use strict';
 
-let projectsArray = [];
-
-let sourceHTML = $('#projects-template').html();
-let projectsTemplate = Handlebars.compile(sourceHTML);
+var projectsArray = [];
 
 function Project(rawData){
   this.title = rawData.title;
@@ -12,33 +9,38 @@ function Project(rawData){
   this.url = rawData.projectUrl;
 }
 
-Project.prototype.toHtml = function () {
-  debugger;
-  projectsTemplate(this)
-  console.log(this);
-};
+Project.prototype.toHtml = function() {
+  let sourceHTML = $('#projects-template').html();
+  let projectsTemplate = Handlebars.compile(sourceHTML);
+  return projectsTemplate(this);
+}
 
-Project.loadAll = function(ele) {
-  console.log(ele);
-  projectsArray.push(new Project(ele));
+Project.loadAll = function(listOfObjects) {
+  listOfObjects.forEach(function (project) {
+    projectsArray.push(new Project(project));
+  })
 }
 
 Project.fetchAll = function() {
   if (localStorage.projectsData) {
     Project.loadAll(JSON.parse(localStorage.projectsData));
   } else {
-    $.get('../data/data.json', function (response) {
+    $.get('/data/data.json', function (response) {
       localStorage.setItem('projectsData', JSON.stringify(response));
-      Project.loadAll();
-    });}
+      Project.loadAll(response);
+    });
+  }
 }
 
 Project.fetchAll();
 
-projectsArray.forEach(function(someProject) {
-  let newRawHTML = projectsTemplate(someProject);
-  $('#projects-area').append(newRawHTML);}
-);
+let renderProjects = function() {
+  projectsArray.forEach(function(someProject) {
+    $('#projects-area').append(someProject)
+  })
+}
+
+renderProjects();
 
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;
