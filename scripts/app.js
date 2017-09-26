@@ -19,6 +19,7 @@ Project.loadAll = function(listOfObjects) {
   listOfObjects.forEach(function (project) {
     projectsArray.push(new Project(project));
   })
+  renderProjects(projectsArray);
 }
 
 Project.fetchAll = function() {
@@ -34,13 +35,13 @@ Project.fetchAll = function() {
 
 Project.fetchAll();
 
-let renderProjects = function() {
-  projectsArray.forEach(function(someProject) {
-    $('#projects-area').append(someProject)
+function renderProjects (projectsArrayObj) {
+  console.log(projectsArrayObj);
+  debugger;
+  projectsArrayObj.forEach(function(someProject) {
+    $('#projects-area').append(someProject.toHtml())
   })
 }
-
-renderProjects();
 
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;
