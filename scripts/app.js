@@ -13,6 +13,7 @@ function Project(rawData){
 }
 
 Project.prototype.toHtml = function () {
+  debugger;
   projectsTemplate(this)
   console.log(this);
 };
