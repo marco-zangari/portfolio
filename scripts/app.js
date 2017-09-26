@@ -2,48 +2,46 @@
 
 var projectsArray = [];
 
-var sourceHTML = $('#projects-template').html();
-var projectsTemplate = Handlebars.compile(sourceHTML);
-
-function Project(projectsData){
-  this.title = projectsData.title;
-  this.date = projectsData.date;
-  this.contributor = projectsData.contributor;
-  this.url = projectsData.projectUrl;
+function Project(rawData){
+  this.title = rawData.title;
+  this.date = rawData.date;
+  this.contributor = rawData.contributor;
+  this.url = rawData.projectUrl;
 }
 
-projectsData.forEach(function(projectObject) {
-  projectsArray.push(new Project(projectObject));
-});
+Project.prototype.toHtml = function() {
+  let sourceHTML = $('#projects-template').html();
+  let projectsTemplate = Handlebars.compile(sourceHTML);
+  return projectsTemplate(this);
+}
 
-projectsArray.forEach(function(someProject) {
-  var newRawHTML = projectsTemplate(someProject);
-  $('#projects-area').append(newRawHTML);}
-);
+Project.loadAll = function(listOfObjects) {
+  listOfObjects.forEach(function (project) {
+    projectsArray.push(new Project(project));
+  })
+  renderProjects(projectsArray);
+}
 
-$('.scroll-right-name').on('click', function(event){
-  event.stopPropagation();
-  $(this)
-    .css({position: 'center'});
-  if ($(this).position().center) {
-    $(this).animate({
-      left: ($(window).width() - $(this).width()) + 'px'
-    }, 3000);
+Project.fetchAll = function() {
+  if (localStorage.projectsData) {
+    Project.loadAll(JSON.parse(localStorage.projectsData));
   } else {
-    $(this).animate({
-      left: '50px'
-    }, 3000);
+    $.get('/data/data.json', function (response) {
+      localStorage.setItem('projectsData', JSON.stringify(response));
+      Project.loadAll(response);
+    });
   }
-})
+}
 
+Project.fetchAll();
 
-$('.fa').on('click', function(){
-  $('.burger').toggle();
-});
-
-// $(.'fa').on('click', function (){
-//   $.'.burger').hide();
-// });
+function renderProjects (projectsArrayObj) {
+  console.log(projectsArrayObj);
+  debugger;
+  projectsArrayObj.forEach(function(someProject) {
+    $('#projects-area').append(someProject.toHtml())
+  })
+}
 
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;

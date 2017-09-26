@@ -26,6 +26,7 @@
        <li class="date">{{ date }}</li>
        <li class="contributor">{{ contributor }}</li>
        <li class="url">{{ url }}</li>
+     </ul>
    </script>
    <script src="https://use.fontawesome.com/e05560d755.js"></script>
   </head>
@@ -46,12 +47,6 @@
         <div>
           <ul id="list">
             <li id="projects-area" class="clickable clearfix">projects
-              <ul class="projects">
-                <li class="title">project title: </li>
-                <li class="date">project completed: </li>
-                <li class="contributor">project collaborators: </li>
-                <li class="url">project link: </li>
-              </ul>
             </li>
             <li id="work-history" class="clickable clearfix">work history</li>
             <li id="education" class="clickable clearfix">education</li>
@@ -63,6 +58,10 @@
         <a href="#" class="scroll-right-name" id="move-right-2">developer | researcher</a>
       </div>
   </body>
-  <script type="text/javascript" src="data/source-data.js"></script>
+  <script type="text/javascript" src="/data/data.json"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/articleView.js"></script>
+  <!-- <script>
+  projectView.initIndexPage();
+  </script> -->
 </html>
