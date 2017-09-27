@@ -44,7 +44,9 @@ var app = app || {};
       $('#projects-area').append(someProject.toHtml())
     })
   }
+  module.Project = Project;
 })(app);
+
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;
 //   this.workPlace = workPlace;

@@ -2,18 +2,22 @@
 
 const projectView = {};
 
-projectView.initIndexPage = function() {
-  projectsArray.forEach(function(project) {
-    $('#projects-area').append(project.toHtml(
-      {}
-    ))
-  })
-}
+(function(module) {
+  projectView.initIndexPage = function() {
+    app.projectsArray.forEach(function(project) {
+      $('#projects-area').append(project.toHtml(
+        {}
+      ))
+    })
+  }
+
+  module.projectView = projectView;
+})
 
 $('.scroll-right-name').on('click', function(event){
   event.stopPropagation();
   $(this)
-    .css({position: 'center'});
+  .css({position: 'center'});
   if ($(this).position().center) {
     $(this).animate({
       left: ($(window).width() - $(this).width()) + 'px'
