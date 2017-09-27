@@ -1,3 +1,4 @@
 'use strict';
 
-page('/', app.)
+page('/', app.projectView.initIndexPage);
+page();

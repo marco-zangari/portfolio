@@ -11,7 +11,8 @@ const projectView = {};
     })
   }
   module.projectView = projectView;
-})
+})(app);
+
 
 $('.scroll-right-name').on('click', function(event){
   event.stopPropagation();
