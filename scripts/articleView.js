@@ -10,7 +10,6 @@ const projectView = {};
       ))
     })
   }
-
   module.projectView = projectView;
 })
 
