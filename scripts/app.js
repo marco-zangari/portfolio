@@ -1,48 +1,50 @@
 'use strict';
 
-var projectsArray = [];
+var app = app || {};
 
-function Project(rawData){
-  this.title = rawData.title;
-  this.date = rawData.date;
-  this.contributor = rawData.contributor;
-  this.url = rawData.projectUrl;
-}
+(function(module) {
+  var projectsArray = [];
 
-Project.prototype.toHtml = function() {
-  let sourceHTML = $('#projects-template').html();
-  let projectsTemplate = Handlebars.compile(sourceHTML);
-  return projectsTemplate(this);
-}
-
-Project.loadAll = function(listOfObjects) {
-  listOfObjects.forEach(function (project) {
-    projectsArray.push(new Project(project));
-  })
-  renderProjects(projectsArray);
-}
-
-Project.fetchAll = function() {
-  if (localStorage.projectsData) {
-    Project.loadAll(JSON.parse(localStorage.projectsData));
-  } else {
-    $.get('/data/data.json', function (response) {
-      localStorage.setItem('projectsData', JSON.stringify(response));
-      Project.loadAll(response);
-    });
+  function Project(rawData){
+    this.title = rawData.title;
+    this.date = rawData.date;
+    this.contributor = rawData.contributor;
+    this.url = rawData.projectUrl;
   }
-}
 
-Project.fetchAll();
+  Project.prototype.toHtml = function() {
+    let sourceHTML = $('#projects-template').html();
+    let projectsTemplate = Handlebars.compile(sourceHTML);
+    return projectsTemplate(this);
+  }
 
-function renderProjects (projectsArrayObj) {
-  console.log(projectsArrayObj);
-  debugger;
-  projectsArrayObj.forEach(function(someProject) {
-    $('#projects-area').append(someProject.toHtml())
-  })
-}
+  Project.loadAll = function(listOfObjects) {
+    listOfObjects.forEach(function (project) {
+      projectsArray.push(new Project(project));
+    })
+    renderProjects(projectsArray);
+  }
 
+  Project.fetchAll = function() {
+    if (localStorage.projectsData) {
+      Project.loadAll(JSON.parse(localStorage.projectsData));
+    } else {
+      $.get('/data/data.json', function (response) {
+        localStorage.setItem('projectsData', JSON.stringify(response));
+        Project.loadAll(response);
+      });
+    }
+  }
+
+  Project.fetchAll();
+
+  function renderProjects (projectsArrayObj) {
+    console.log(projectsArrayObj);
+    projectsArrayObj.forEach(function(someProject) {
+      $('#projects-area').append(someProject.toHtml())
+    })
+  }
+})(app);
 // function WorkHistory (title,workPlace,startDate,endDate,responsibility) {
 //   this.title = title;
 //   this.workPlace = workPlace;
