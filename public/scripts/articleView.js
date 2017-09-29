@@ -12,10 +12,8 @@ const projectView = {};
   }
   projectView.showProjects = function () {
     app.renderProjects();
-    console.log('hello');
     $('#list').toggle('slow');
   }
-
 
   module.projectView = projectView;
 })(app);
@@ -35,6 +33,6 @@ $('.scroll-right-name').on('click', function(event){
   }
 })
 
-$('.fa').on('click', function(){
-  $('.burger').toggle();
+$('#theBurger').on('click', function(){
+  $('#list').toggle();
 });
