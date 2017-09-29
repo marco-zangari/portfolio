@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "a list of portfolio projects, Code Fellows 301",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marco-zangari/portfolio.git"
+  },
+  "author": "Marco Zangari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marco-zangari/portfolio/issues"
+  },
+  "homepage": "https://github.com/marco-zangari/portfolio#readme",
+  "dependencies": {
+    "express": "^4.16.0",
+    "express-request-proxy": "^2.0.0"
+  }
+}

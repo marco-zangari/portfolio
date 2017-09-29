@@ -35,20 +35,20 @@
     <header class="site-header clearfix">
       <nav class="main-nav">
         <i class="fa fa-bars" aria-hidden="true"></i>
-          <ul class="burger">
+          <ul id="theBurger"class="burger">
             <li class="tab" data-content="articles"><a href="#" class="icon-home"> Home</a></li>
             <li class="tab" data-content="about"><a href="#" class="icon-address-book"> About</a></li>
           </ul>
       </nav>
     </header>
     <div id="authorName" class="bigTitle clearfix">
-      <a href="#" class="scroll-right-name" id="move-right">marco zangari</a>
+      <a href="/clickOnName" class="scroll-right-name" id="move-right">marco zangari</a>
     </div>
       <section>
         <div>
           <ul id="list">
-            <li id="projects-area" class="clickable clearfix">projects
-            </li>
+            <a href="/projects" id="projects-click"><li id="projects-area" class="clickable clearfix">projects
+            </li></a>
             <li id="work-history" class="clickable clearfix">work history</li>
             <li id="education" class="clickable clearfix">education</li>
             <a href="https://github.com/marco-zangari"><li id="about-aboutMe" class="clickable clearfix">about</li></a>
@@ -63,12 +63,5 @@
   <script type="text/javascript" src="/data/data.json"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/articleView.js"></script>
-  <script type="text/javascript" src="/controller/routes.js">
-
-  </script>
-
-  </script>
-  <!-- <script>
-  projectView.initIndexPage();
-  </script> -->
+  <script type="text/javascript" src="/controller/routes.js"></script>
 </html>
