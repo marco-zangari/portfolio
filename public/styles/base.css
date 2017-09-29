@@ -30,7 +30,7 @@ body {
 }
 
 ul {
-  display: none;
+  display: show;
 }
 
 a, a:link, a:active {

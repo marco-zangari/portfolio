@@ -10,14 +10,15 @@ const projectView = {};
       ))
     })
   }
-
   projectView.showProjects = function () {
-    
+    app.renderProjects();
+    console.log('hello');
+    $('#list').toggle('slow');
   }
+
 
   module.projectView = projectView;
 })(app);
-
 
 $('.scroll-right-name').on('click', function(event){
   event.stopPropagation();
