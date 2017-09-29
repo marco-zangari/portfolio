@@ -10,6 +10,11 @@ const projectView = {};
       ))
     })
   }
+
+  projectView.showProjects = function () {
+    
+  }
+
   module.projectView = projectView;
 })(app);
 
