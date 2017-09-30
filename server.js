@@ -12,3 +12,14 @@ APP.get('*', (request, response) => response.sendFile('index.html', {root: './pu
 APP.listen(PORT, function () {
   console.log(`You are running on port ${PORT}`);
 })
+
+APP.get('/github/*', proxyGitHub)
+
+function proxyGitHub(req, res, next){
+  (requestProxy({
+    url: `https://api.github.com/${req.params[0]}`,
+    headers: {
+      Authorization: `token ${process.env.GITHUB_TOKEN}`
+    }
+  }))(req, res);
+}
