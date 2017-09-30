@@ -9,9 +9,6 @@ APP.use(EXPRESS.static('./public'));
 
 APP.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
 
-APP.listen(PORT, function () {
-  console.log(`You are running on port ${PORT}`);
-})
 
 APP.get('/github/*', proxyGitHub)
 
@@ -23,3 +20,7 @@ function proxyGitHub(req, res, next){
     }
   }))(req, res);
 }
+
+APP.listen(PORT, function () {
+  console.log(`You are running on port ${PORT}`);
+})
