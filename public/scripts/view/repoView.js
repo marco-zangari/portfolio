@@ -6,7 +6,7 @@ var app = app || {};
 
   repoView.index = function() {
     let render = Handlebars.compile($('#repo-template').html());
-    $('#projects-area ul').append(
+    $('#repo-area').append(
       app.repos.with('name').map(render)
     );
   };

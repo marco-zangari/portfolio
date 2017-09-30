@@ -21,6 +21,9 @@ function proxyGitHub(req, res, next){
   }))(req, res);
 }
 
+app.get('/new', (request, response) => response.sendFile('new.html', {root: './public'}));
+app.get('/admin', (request, response) => response.sendFile('admin.html', {root: './public'}));
+
 APP.listen(PORT, function () {
   console.log(`You are running on port ${PORT}`);
 })
