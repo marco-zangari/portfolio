@@ -1,6 +1,9 @@
 'use strict';
 
+var app = app || {};
+
 const projectView = {};
+
 
 (function(module) {
   projectView.initIndexPage = function() {
