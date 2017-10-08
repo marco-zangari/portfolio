@@ -1,7 +1,28 @@
 'use strict';
 
-const repoView = {}
+var app = app || {};
 
-ui ();
+(function(module){
 
-repoView.index();
+  const repoView = {};
+
+  const showRepos = function(){
+
+    let $projects = $('#projects-github');
+
+    $projects.find('ul').empty();
+    $projects.show().siblings().hide();
+    $('nav').show();
+  };
+
+  var render = Handlebars.compile($('#repo-template').text());
+
+  repoView.index = function(){
+    showRepos();
+    $('#projects-github ul').append(
+      app.repos.with('name').map(render)
+    );
+  };
+
+  module.repoView = repoView;
+})(app);
