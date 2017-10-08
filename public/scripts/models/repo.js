@@ -1,7 +1,24 @@
 'use strict';
 
-const repos = {}
+var app = app || {};
 
-repos.all = [];
+(function(module) {
 
-repos.requestrepos();
+  const repos = {};
+
+  repos.all = [];
+
+  repos.requestrepos = function(callback){
+    $.get('/github/user/repos')
+    .then(results => {
+      repos.all = results;
+    }, err =>{
+      console.error(err);
+    }).then(callback);
+  };
+
+// repos.with = attr => repos.all.filter(repo => repo[attr]);
+
+  module.repos = repos;
+
+})(app);
