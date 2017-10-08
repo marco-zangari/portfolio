@@ -44,3 +44,14 @@ a:hover, a:focus {
 
 a:visited {
 }
+
+section {
+  height: 25vh;
+  background-color: white;
+  color: black;
+}
+.scroll-right-name {
+  background-color: rgb(108,123,139);
+  position: relative;
+  cursor: pointer;
+}
